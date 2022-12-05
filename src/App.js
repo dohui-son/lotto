@@ -1,7 +1,15 @@
-const InputView = require("./View/InputView.js");
+const InputView = require("./View/InputView");
 
 class App {
-  play() {}
+  #myLottoCount;
+  play() {
+    this.payLotto();
+  }
+  payLotto() {
+    InputView.readPayment((money) => {
+      // money validation
+    });
+  }
 }
 
 const app = new App();
