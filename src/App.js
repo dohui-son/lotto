@@ -1,12 +1,18 @@
 const InputView = require('./UI/InputView.js');
+const Validator = require('./utils/Validator.js');
 
 class App {
+  #lottoTotal;
+
   play() {
     this.payLotto();
   }
 
   payLotto() {
-    InputView.readPayment((payment) => {});
+    InputView.readPayment((payment) => {
+      const PAYMENT = Validator.paymentValidate(payment);
+      this.#lottoTotal = PAYMENT / 1000;
+    });
   }
 }
 
