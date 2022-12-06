@@ -44,8 +44,6 @@ class App {
       this.#lotto = new Lotto(WIN_NUMBERS);
       return this.createBonusNumber();
     });
-
-    //this.#lotto = new Lotto(this.#lottoTotal);
   }
 
   createBonusNumber() {
@@ -64,8 +62,9 @@ class App {
     for (let index = 3; index < 8; index++) {
       profit += PROFIT_TABLE[index] * WINNINGS[index];
     }
-
-    OutputView.printResult(WINNINGS, profit);
+    const PROFIT_PERCENTAGE = Math.round((profit / (this.#lottoTotal * 1000)) * 1000) / 10; //수익률 계산해주기
+    OutputView.printResult(WINNINGS, PROFIT_PERCENTAGE);
+    OutputView.closeConsole();
   }
 }
 

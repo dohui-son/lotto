@@ -7,6 +7,8 @@ const RESULT_DESCRIPTION = {
   6: '6개 일치 (2,000,000,000원) - ',
 };
 
+const RESULT_TITLE = '\n당첨 통계\n---';
+
 const OutputView = {
   printMyLotto(lottoTotal, myLottos) {
     Console.print(`\n${lottoTotal}개를 구매했습니다.`);
@@ -17,10 +19,9 @@ const OutputView = {
   },
 
   printResult(winResult, profitPercentage) {
-    // 퍼센트 출력시 쉼표 넣어주기
-    Console.print('\n당첨 통계\n---');
+    Console.print(RESULT_TITLE);
     for (let index = 3; index < 7; index++) {
-      Console.print(RESULT_DESCRIPTION[index] + `${winResult[7]}개`);
+      Console.print(RESULT_DESCRIPTION[index] + `${winResult[index]}개`);
       if (index === 5) {
         Console.print(RESULT_DESCRIPTION[7] + `${winResult[7]}개`);
       }
@@ -38,6 +39,10 @@ const OutputView = {
       return PERCENT + '%';
     }
     return PERCENT + '.0%';
+  },
+
+  closeConsole() {
+    Console.close();
   },
 };
 
