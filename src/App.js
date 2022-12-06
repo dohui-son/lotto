@@ -4,6 +4,14 @@ const Lotto = require('./Lotto.js');
 const LottoLibrary = require('./utils/LottoLibrary.js');
 const OutputView = require('./UI/OutputView.js');
 
+const PROFIT_TABLE = {
+  3: 5000,
+  4: 50000,
+  5: 1500000,
+  6: 2000000000,
+  7: 30000000,
+};
+
 class App {
   #lottoTotal;
   #lotto;
@@ -51,7 +59,13 @@ class App {
   }
 
   calculateResult() {
-    this.#lotto.calculateScore(this.#bonus, this.#myLottos);
+    const WINNINGS = this.#lotto.calculateScore(this.#bonus, this.#myLottos);
+    let profit = 0;
+    for (let index = 3; index < 8; index++) {
+      profit += PROFIT_TABLE[index] * WINNINGS[index];
+    }
+
+    OutputView.printResult(WINNINGS, profit);
   }
 }
 

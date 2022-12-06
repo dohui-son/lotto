@@ -26,7 +26,7 @@ class Lotto {
   }
 
   calculateScore(bonus, myLottos) {
-    let winning = [0, 0, 0, 0, 0, 0, 0, 0];
+    let winning = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     for (let index = 0; index < myLottos.length; index++) {
       let counter = 0;
@@ -37,12 +37,12 @@ class Lotto {
       });
 
       if (counter === 5 && myLottos[index].includes(bonus)) {
-        winning[0] += 1;
+        winning[7] += 1;
         continue;
       }
       winning[counter] += 1;
     }
-    console.log(winning);
+
     return winning;
   }
 }
