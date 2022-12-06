@@ -24,6 +24,14 @@ const LottoLibrary = {
 
     return LOTTO_NUMBERS;
   },
+
+  percentFormatter(percent) {
+    const PERCENT = percent.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+    if (PERCENT.includes('.')) {
+      return PERCENT + '%';
+    }
+    return PERCENT + '.0%';
+  },
 };
 
 module.exports = LottoLibrary;
