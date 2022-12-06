@@ -1,8 +1,11 @@
+const Validator = require('./utils/Validator.js');
+
 class Lotto {
   #numbers;
 
   constructor(numbers) {
     this.validate(numbers);
+    Validator.winNumberValidate(numbers);
     this.#numbers = numbers;
   }
 

@@ -30,8 +30,9 @@ class App {
   }
 
   createWinLotto() {
-    const WIN_LOTTOS = InputView.readWinLotto((winNumbers) => {
-      // Validate
+    InputView.readWinLotto((winNumbers) => {
+      const WIN_NUMBERS = winNumbers.split(',');
+      this.#lotto = new Lotto(WIN_NUMBERS);
     });
 
     //this.#lotto = new Lotto(this.#lottoTotal);
