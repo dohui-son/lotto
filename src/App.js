@@ -8,6 +8,7 @@ class App {
   #lottoTotal;
   #lotto;
   #myLottos;
+  #winLottos;
 
   play() {
     this.payLotto();
@@ -25,6 +26,13 @@ class App {
     this.#myLottos = LottoLibrary.generateLotto(this.#lottoTotal);
     this.#myLottos = LottoLibrary.sortLotto(this.#myLottos);
     OutputView.printMyLotto(this.#lottoTotal, this.#myLottos);
+    return this.createWinLotto();
+  }
+
+  createWinLotto() {
+    const WIN_LOTTOS = InputView.readWinLotto((winNumbers) => {
+      // Validate
+    });
 
     //this.#lotto = new Lotto(this.#lottoTotal);
   }
