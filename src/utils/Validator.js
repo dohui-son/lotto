@@ -15,7 +15,7 @@ const Validator = {
   winNumberValidate(winNumbers) {
     const WIN_NUMBER = new Set(winNumbers);
     if (WIN_NUMBER.size !== 6) {
-      ErrorHandler.catchError('duplication');
+      ErrorHandler.catchError('winDuplication');
     }
     winNumbers.map((element) => {
       if (isNaN(element)) {
@@ -26,6 +26,16 @@ const Validator = {
         ErrorHandler.catchError('winNumber');
       }
     });
+  },
+
+  bonusValidate(bonus) {
+    if (isNaN(bonus)) {
+      ErrorHandler.catchError('bonus');
+    }
+    const BONUS = parseFloat(bonus);
+    if (BONUS % 1 > 0 || BONUS < 1 || BONUS > 45) {
+      ErrorHandler.catchError('bonus');
+    }
   },
 };
 

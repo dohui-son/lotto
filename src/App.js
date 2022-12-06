@@ -42,7 +42,10 @@ class App {
 
   createBonusNumber() {
     InputView.readBonus((bonusNumber) => {
-      //
+      Validator.bonusValidate(bonusNumber);
+      const BONUS = parseInt(bonusNumber);
+      this.#lotto.bonusDuplicate(BONUS);
+      this.#bonus = BONUS;
     });
   }
 }
