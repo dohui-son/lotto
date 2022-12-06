@@ -46,7 +46,12 @@ class App {
       const BONUS = parseInt(bonusNumber);
       this.#lotto.bonusDuplicate(BONUS);
       this.#bonus = BONUS;
+      return this.calculateResult();
     });
+  }
+
+  calculateResult() {
+    this.#lotto.calculateScore(this.#bonus, this.#myLottos);
   }
 }
 

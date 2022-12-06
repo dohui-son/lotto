@@ -1,5 +1,6 @@
 const Validator = require('./utils/Validator.js');
 const LottoLibrary = require('./utils/LottoLibrary.js');
+const OutputView = require('./UI/OutputView.js');
 
 class Lotto {
   #numbers;
@@ -24,8 +25,25 @@ class Lotto {
     }
   }
 
-  calculateScore() {
-    //console.log(this.#numbers);
+  calculateScore(bonus, myLottos) {
+    let winning = [0, 0, 0, 0, 0, 0, 0, 0];
+
+    for (let index = 0; index < myLottos.length; index++) {
+      let counter = 0;
+      myLottos[index].map((element) => {
+        if (this.#numbers.includes(element)) {
+          counter += 1;
+        }
+      });
+
+      if (counter === 5 && myLottos[index].includes(bonus)) {
+        winning[0] += 1;
+        continue;
+      }
+      winning[counter] += 1;
+    }
+    console.log(winning);
+    return winning;
   }
 }
 
