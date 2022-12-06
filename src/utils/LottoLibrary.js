@@ -16,6 +16,14 @@ const LottoLibrary = {
     });
     return lottoNumbers;
   },
+
+  lottoFormatter(lottoNumbers) {
+    const LOTTO_NUMBERS = lottoNumbers.map((element) => {
+      return parseInt(element);
+    });
+
+    return LOTTO_NUMBERS;
+  },
 };
 
 module.exports = LottoLibrary;

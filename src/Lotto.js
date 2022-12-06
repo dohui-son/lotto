@@ -1,4 +1,5 @@
 const Validator = require('./utils/Validator.js');
+const LottoLibrary = require('./utils/LottoLibrary');
 
 class Lotto {
   #numbers;
@@ -6,8 +7,7 @@ class Lotto {
   constructor(numbers) {
     this.validate(numbers);
     Validator.winNumberValidate(numbers);
-
-    this.#numbers = numbers;
+    this.#numbers = LottoLibrary.lottoFormatter(numbers);
   }
 
   validate(numbers) {
