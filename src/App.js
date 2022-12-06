@@ -2,11 +2,12 @@ const InputView = require('./UI/InputView.js');
 const Validator = require('./utils/Validator.js');
 const Lotto = require('./Lotto.js');
 const LottoLibrary = require('./utils/LottoLibrary.js');
+const OutputView = require('./UI/OutputView.js');
 
 class App {
   #lottoTotal;
   #lotto;
-  #winLottos;
+  #myLottos;
 
   play() {
     this.payLotto();
@@ -16,12 +17,14 @@ class App {
     InputView.readPayment((payment) => {
       const PAYMENT = Validator.paymentValidate(payment);
       this.#lottoTotal = PAYMENT / 1000;
-      return this.purchaseLotto();
+      return this.issueLotto();
     });
   }
 
-  purchaseLotto() {
-    this.#winLottos = LottoLibrary.generateLotto(this.#lottoTotal);
+  issueLotto() {
+    this.#myLottos = LottoLibrary.generateLotto(this.#lottoTotal);
+    this.#myLottos = LottoLibrary.sortLotto(this.#myLottos);
+    OutputView.printMyLotto(this.#lottoTotal, this.#myLottos);
 
     //this.#lotto = new Lotto(this.#lottoTotal);
   }

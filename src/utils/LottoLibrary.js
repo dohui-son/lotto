@@ -10,11 +10,12 @@ const LottoLibrary = {
     return LOTTO_NUMBERS;
   },
 
-  //   sortLotto(lottoNumbers) {
-  //     lottoNumbers.map((element) => {
-  //       element.sort();
-  //     });
-  //   },
+  sortLotto(lottoNumbers) {
+    lottoNumbers.map((element) => {
+      element.sort((a, b) => a - b);
+    });
+    return lottoNumbers;
+  },
 };
 
 module.exports = LottoLibrary;
