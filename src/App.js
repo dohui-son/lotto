@@ -9,6 +9,7 @@ class App {
   #lotto;
   #myLottos;
   #winLottos;
+  #bonus;
 
   play() {
     this.payLotto();
@@ -33,9 +34,16 @@ class App {
     InputView.readWinLotto((winNumbers) => {
       const WIN_NUMBERS = winNumbers.split(',');
       this.#lotto = new Lotto(WIN_NUMBERS);
+      return this.createBonusNumber();
     });
 
     //this.#lotto = new Lotto(this.#lottoTotal);
+  }
+
+  createBonusNumber() {
+    InputView.readBonus((bonusNumber) => {
+      //
+    });
   }
 }
 

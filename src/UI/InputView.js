@@ -8,6 +8,10 @@ const InputView = {
   readWinLotto(callback) {
     Console.readLine('\n당첨 번호를 입력해 주세요.\n', callback);
   },
+
+  readBonus(callback) {
+    Console.readLine('\n보너스 번호를 입력해 주세요.\n', callback);
+  },
 };
 
 module.exports = InputView;
