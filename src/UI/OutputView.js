@@ -1,7 +1,7 @@
 const { Console } = require('@woowacourse/mission-utils');
 const LottoLibrary = require('../utils/LottoLibrary.js');
 
-const { MESSAGE } = require('../constants.js');
+const { MESSAGE } = require('../utils/constants.js');
 
 const OutputView = {
   printMyLotto(lottoTotal, myLottos) {

@@ -3,13 +3,12 @@ const Validator = require('./utils/Validator.js');
 const Lotto = require('./Lotto.js');
 const LottoLibrary = require('./utils/LottoLibrary.js');
 const OutputView = require('./UI/OutputView.js');
-const { PROFIT_TABLE } = require('./constants.js');
+const { PROFIT_TABLE } = require('./utils/constants.js');
 
 class App {
   #lottoTotal;
   #lotto;
   #myLottos;
-  #winLottos;
   #bonus;
 
   play() {

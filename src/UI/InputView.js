@@ -1,5 +1,5 @@
 const { Console } = require('@woowacourse/mission-utils');
-const { MESSAGE } = require('../constants.js');
+const { MESSAGE } = require('../utils/constants.js');
 
 const InputView = {
   readPayment(callback) {
